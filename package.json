@@ -1,0 +1,39 @@
+{
+    "name": "@msmtech/npx-commands",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "npx tsc && find . -name \"*js\" -exec chmod +x {} \\;",
+        "d": "aws-vault exec main -- chamber exec npx-commands/dev -- npm run dev",
+        "env:d:write": "aws-vault exec main -- chamber write npx-commands/dev",
+        "env:d:read": "aws-vault exec main -- chamber read npx-commands/dev",
+        "env:d:delete": "aws-vault exec main -- chamber delete npx-commands/dev",
+        "env:d:list": "aws-vault exec main -- chamber env npx-commands/dev",
+        "env:d:import": "aws-vault exec main -- chamber import npx-commands/dev",
+        "env:d:export": "aws-vault exec main -- chamber export npx-commands/dev",
+        "env:p:write": "aws-vault exec main -- chamber write npx-commands/prod",
+        "env:p:read": "aws-vault exec main -- chamber read npx-commands/prod",
+        "env:p:delete": "aws-vault exec main -- chamber delete npx-commands/prod",
+        "env:p:list": "aws-vault exec main -- chamber env npx-commands/prod",
+        "env:p:import": "aws-vault exec main -- chamber import npx-commands/prod",
+        "env:p:export": "aws-vault exec main -- chamber export npx-commands/prod",
+        "env:c:write": "aws-vault exec main -- chamber write npx-commands/cicd",
+        "env:c:read": "aws-vault exec main -- chamber read npx-commands/cicd",
+        "env:c:delete": "aws-vault exec main -- chamber delete npx-commands/cicd",
+        "env:c:list": "aws-vault exec main -- chamber env npx-commands/cicd",
+        "env:c:import": "aws-vault exec main -- chamber import npx-commands/cicd",
+        "env:c:export": "aws-vault exec main -- chamber export npx-commands/cicd"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bin": {
+        "msm-init": "/msm-init/dist/index.js"
+    },
+    "devDependencies": {
+        "@types/node": "^22.10.5",
+        "typescript": "^5.7.2"
+    }
+}

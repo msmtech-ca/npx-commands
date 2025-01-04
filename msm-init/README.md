@@ -1,0 +1,1 @@
+Use this to initiate a new a project with prefilled aws-vault/chamber commands.
