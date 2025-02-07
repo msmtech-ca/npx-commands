@@ -1,12 +1,34 @@
 {
-  "name": "@msmtech/npx-msm-init",
-  "version": "1.0.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "name": "@msmtech/npx-msm-init",
+    "version": "1.0.2",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "d": "aws-vault exec main -- chamber exec test/dev -- npm run dev",
+        "env:d:write": "aws-vault exec main -- chamber write test/dev",
+        "env:d:read": "aws-vault exec main -- chamber read test/dev",
+        "env:d:delete": "aws-vault exec main -- chamber delete test/dev",
+        "env:d:list": "aws-vault exec main -- chamber env test/dev",
+        "env:d:import": "aws-vault exec main -- chamber import test/dev",
+        "env:d:export": "aws-vault exec main -- chamber export test/dev",
+        "env:p:write": "aws-vault exec main -- chamber write test/prod",
+        "env:p:read": "aws-vault exec main -- chamber read test/prod",
+        "env:p:delete": "aws-vault exec main -- chamber delete test/prod",
+        "env:p:list": "aws-vault exec main -- chamber env test/prod",
+        "env:p:import": "aws-vault exec main -- chamber import test/prod",
+        "env:p:export": "aws-vault exec main -- chamber export test/prod",
+        "env:c:write": "aws-vault exec main -- chamber write test/cicd",
+        "env:c:read": "aws-vault exec main -- chamber read test/cicd",
+        "env:c:delete": "aws-vault exec main -- chamber delete test/cicd",
+        "env:c:list": "aws-vault exec main -- chamber env test/cicd",
+        "env:c:import": "aws-vault exec main -- chamber import test/cicd",
+        "env:c:export": "aws-vault exec main -- chamber export test/cicd"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bin": {
+        "msm-init": "index.js"
+    }
 }
