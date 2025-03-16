@@ -16,6 +16,7 @@ try {
     }
     const config = JSON.parse(data);
     config['scripts']["d"] = `aws-vault exec main -- chamber exec ${projectName}/dev -- npm run dev`;
+    config['scripts']["env:d:exec"] = `aws-vault exec main -- chamber exec ${projectName}/dev -- `;
     config['scripts']["env:d:write"] = `aws-vault exec main -- chamber write ${projectName}/dev`;
     config['scripts']["env:d:read"] = `aws-vault exec main -- chamber read ${projectName}/dev`;
     config['scripts']["env:d:delete"] = `aws-vault exec main -- chamber delete ${projectName}/dev`;
