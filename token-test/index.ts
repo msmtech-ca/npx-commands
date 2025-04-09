@@ -1,29 +1,30 @@
 main()
     .then(() => {
-        console.log('token-new done.');
+        console.log('token-test done.');
     })
     .catch((err) => {
-        console.error('token-new error:', err);
+        console.error('token-test error:', err);
     });
 async function main() {
-    console.log('Starting token-new...');
+    console.log('Starting token-test...');
 
     const appSecret = process.argv[2];
-    const text = process.argv[3];
+    const encryptedText = process.argv[3];
+    const urlDecode = process.argv[4] === '1';
 
-    if (appSecret === undefined || text === undefined) {
+    if (appSecret === undefined || encryptedText === undefined) {
         throw new Error('Missing arguments.');
     }
 
-    const encryptedSecret = await encryptV2(text, appSecret);
-    const encoded64EncryptedSecret = btoa(encryptedSecret);
-    const urlEncodedEncryptedSecret = encodeURIComponent(encoded64EncryptedSecret);
+    let decodedEncryptedSecret = encryptedText;
+    if (urlDecode) {
+        decodedEncryptedSecret = atob(decodeURIComponent(encryptedText));
+    } else {
+        decodedEncryptedSecret = atob(encryptedText);
+    }
+    const decryptedSecret = await decryptV2(decodedEncryptedSecret, appSecret);
 
-    console.log('Result:', {
-        encryptedSecret,
-        encoded64EncryptedSecret,
-        urlEncodedEncryptedSecret,
-    });
+    console.log('Result:', decryptedSecret);
 
 }
 
