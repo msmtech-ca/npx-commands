@@ -17,12 +17,12 @@ async function main() {
 
     const encryptedSecret = await encryptV2(text, appSecret);
     const encoded64EncryptedSecret = btoa(encryptedSecret);
-    const urlEncodedEncryptedSecret = encodeURIComponent(encoded64EncryptedSecret);
+    const urlEncoded64BaseEncryptedSecret = encodeURIComponent(encoded64EncryptedSecret);
 
     console.log('Result:', {
         encryptedSecret,
         encoded64EncryptedSecret,
-        urlEncodedEncryptedSecret,
+        urlEncoded64BaseEncryptedSecret,
     });
 
 }
